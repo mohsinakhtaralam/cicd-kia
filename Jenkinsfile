@@ -40,7 +40,7 @@ pipeline {
 
         stage('Send Email Notification') {
             steps {
-                mail(
+                mailext(
                     to: "${EMAIL}",
                     subject: "Docker Deployment Successful",
                     body: "The Docker container for app at http://54.80.207.55:8080:${PORT}",
