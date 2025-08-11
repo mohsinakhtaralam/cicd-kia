@@ -38,7 +38,7 @@ pipeline {
             }
         }
 
-        stage('Send Email Notification') {
+        stage('Send Email') {
             steps {
                 mailext(
                     to: "${EMAIL}",
