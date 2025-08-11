@@ -10,7 +10,8 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/mohsinakhtaralam/cicd-pipeline-aws-ec2-docker-jenkins-github-webhook'
+                git branch: 'main', 
+                url: 'https://github.com/mohsinakhtaralam/cicd-pipeline-aws-ec2-docker-jenkins-github-webhook'
             }
         }
 
@@ -18,8 +19,8 @@ pipeline {
             steps {
                 sh 'docker build -t $IMAGE_NAME .'
             }
-
         }
+
         stage('stop and remove existing container') {
             steps {
                 sh '''
@@ -27,26 +28,24 @@ pipeline {
                 docker rm $CONTAINER_NAME || true
                 '''
             }
-
         }
+
         stage('Docker Container Run') {
             steps {
                 sh '''
                 docker run -d -p $PORT:$PORT --name $CONTAINER_NAME $IMAGE_NAME 
                 '''
             }
-
         }
+
         stage('Send Email Notification') {
             steps {
-                emailtext(
-                    to: &{EMAIL},
+                mail(
+                    to: "${EMAIL}",
                     subject: "Docker Deployment Successful",
-                    body: "The Docker container for the NestJS application 
-                    has been successfully deployed at http://54.80.207.55:8080:${PORT}"
+                    body: "The Docker container for the NestJS application has been successfully deployed at http://54.80.207.55:8080:${PORT}"
                 )
             }
-
         }
     }
 }
