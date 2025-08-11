@@ -43,7 +43,7 @@ pipeline {
                 mail(
                     to: "${EMAIL}",
                     subject: "Docker Deployment Successful",
-                    body: "The Docker container for the NestJS application has been successfully deployed at http://54.80.207.55:8080:${PORT}"
+                    body: "The Docker container for app at http://54.80.207.55:8080:${PORT}",
                 )
             }
         }
