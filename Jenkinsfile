@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('Clone the Repository') {
+        stage('Clone Repository') {
             steps {
                 git branch: 'main',
                 url: 'https://github.com/mohsinakhtaralam/cicd-pipeline-aws-ec2-docker-jenkins-github-webhook.git',
