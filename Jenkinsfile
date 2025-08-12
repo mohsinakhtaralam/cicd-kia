@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+        agent any
     environment {
         CONTAINER_NAME = 'nestjs-app'
         IMAGE_NAME = 'nestjs-image'
@@ -10,7 +10,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 git branch: 'main',
-                url: 'https://github.com/mohsinakhtaralam/cicd-pipeline-aws-ec2-docker-jenkins-github-webhook',
+                url: 'https://github.com/mohsinakhtaralam/cicd-pipeline-aws-ec2-docker-jenkins-github-webhook.git',
             }
         }
 
