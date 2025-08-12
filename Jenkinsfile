@@ -1,5 +1,5 @@
 pipeline {
-        agent any
+    agent any
     environment {
         CONTAINER_NAME = 'nestjs-app'
         IMAGE_NAME = 'nestjs-image'
