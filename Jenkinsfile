@@ -20,7 +20,7 @@ pipeline {
             }
         }
 
-        stage('Stop and remove existing container') {
+        stage('Stop or remove existing container') {
             steps {
                 sh """
                 docker stop $CONTAINER_NAME || true
